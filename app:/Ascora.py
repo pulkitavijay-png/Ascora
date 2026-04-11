@@ -39,7 +39,7 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = "app/assests/character1.png"
+char = "assests//character1.png"
 #character_path = os.path.join(parent_dir, "assests", "character1.png")
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 
@@ -99,7 +99,7 @@ if "live_subject" not in st.session_state:
 # 📌 SIDEBAR NAVIGATION
 # =========================
 st.sidebar.title("🤖 Ascora Hub")
-st.sidebar.image("app/assests/logo.png")
+st.sidebar.image("assests//logo.png")
 #logo_path = os.path.join(parent_dir, "assests", "logo.png")
 #if os.path.exists(logo_path):
 #    st.sidebar.image(logo_path)

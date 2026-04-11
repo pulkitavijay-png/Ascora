@@ -91,11 +91,38 @@ if "attendance_list" not in st.session_state:
 
 if "live_subject" not in st.session_state:
     st.session_state.live_subject = None
+st.set_page_config(page_title="Ascora Hub", layout="wide")
+#Designing
 
+# This block forces the Emerald Green and White text
+st.markdown("""
+    <style>
+    /* This targets the main background */
+    .stApp {
+        background-color: #064e3b !important;
+    }
+    /* This targets the sidebar background */
+    [data-testid="stSidebar"] {
+        background-color: #064e3b !important;
+        border-right: 1px solid #fbbf24;
+    }
+    /* This makes all text white so it's readable on green */
+    h1, h2, h3, p, span, div {
+        color: white !important;
+    }
+    /* This styles your buttons to be Gold */
+    .stButton>button {
+        background-color: #fbbf24 !important;
+        color: #064e3b !important;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 # =========================
 # 📌 SIDEBAR NAVIGATION
 # =========================
-st.sidebar.title("🤖 Ascora Hub")
+st.sidebar.title("Ascora Hub")
 st.sidebar.image(r"assests:/logo.png")
 #logo_path = os.path.join(parent_dir, "assests", "logo.png")
 #if os.path.exists(logo_path):

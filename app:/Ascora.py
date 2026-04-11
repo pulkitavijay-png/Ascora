@@ -94,51 +94,53 @@ if "live_subject" not in st.session_state:
 # DESIGNING
 st.markdown("""
     <style>
-    /* 1. Main Background - Deep Emerald to Black */
+    /* 1. Soft Pastel Background */
     .stApp {
-        background: linear-gradient(180deg, #022c22 0%, #000000 100%) !important;
+        background: linear-gradient(135deg, #fff5f7 0%, #fef2f2 100%) !important;
     }
 
-    /* 2. Sidebar - Dark Charcoal (Makes the Emerald Logo stand out!) */
+    /* 2. Soft Pink Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #111827 !important; /* Very dark blue-gray */
-        border-right: 2px solid #fbbf24; /* Thin gold divider */
+        background-color: #fce4ec !important;
+        border-right: 1px solid #f8bbd0;
     }
 
-    /* 3. Logo Container - Add some breathing room */
-    [data-testid="stSidebar"] [data-testid="stImage"] {
-        padding: 20px;
-        filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
+    /* 3. Fixing the "Empty Green Spaces" */
+    /* This makes your containers look like clean white cards */
+    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown), 
+    .stTextInput>div>div, .stTextArea>div>div {
+        background-color: white !important;
+        border-radius: 15px !important;
+        border: 1px solid #fbcfe8 !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02) !important;
+        color: #4b5563 !important;
     }
 
-    /* 4. Cards - Clean and Semi-Transparent */
-    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid rgba(251, 191, 36, 0.2);
-    }
-
-    /* 5. Gold & White Text */
+    /* 4. Text Colors - Soft Charcoal (easier to read) */
     h1, h2, h3 {
-        color: #fbbf24 !important;
-        letter-spacing: 1px;
+        color: #be185d !important; /* Deep Pink */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     p, span, label {
-        color: #e5e7eb !important;
+        color: #4b5563 !important;
     }
 
-    /* 6. Professional Gold Button */
+    /* 5. Button - Sweet Pastel Pink */
     .stButton>button {
-        background-color: #fbbf24 !important;
-        color: #064e3b !important;
-        border-radius: 8px !important;
+        background: #f472b6 !important;
+        color: white !important;
         border: none !important;
-        font-weight: bold !important;
-        width: 100%;
+        border-radius: 12px !important;
+        padding: 10px 20px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease;
     }
-    
-    /* Hide Streamlit junk */
+    .stButton>button:hover {
+        background: #ec4899 !important;
+        transform: scale(1.02);
+    }
+
+    /* Hide Streamlit Header/Footer */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)

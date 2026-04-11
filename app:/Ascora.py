@@ -94,57 +94,63 @@ if "live_subject" not in st.session_state:
 #Designing
 st.markdown("""
     <style>
-    /* 1. Main Workspace - Soft, Neutral Sage (Easier on eyes than pure white) */
+    /* 1. MAIN WORKSPACE (Light BG -> Dark Text) */
     .stApp {
-        background-color: #f1f5f1 !important; 
+        background-color: #f4f4f2 !important; /* Soft Paper White */
+    }
+    
+    /* Ensure all text in main area is Dark Charcoal */
+    .stApp p, .stApp span, .stApp label, .stApp li {
+        color: #1a202c !important; 
+        font-weight: 500 !important;
+    }
+    
+    /* Main Headers in Deep Green */
+    .stApp h1, .stApp h2, .stApp h3 {
+        color: #064e3b !important;
     }
 
-    /* 2. Sidebar - Clean White (Interchanged) */
+    /* 2. SIDEBAR (Dark BG -> Light Text) */
     [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-        border-right: 1px solid #e2e8f0;
+        background-color: #064e3b !important; /* Deep Emerald */
+        border-right: 2px solid #fbbf24;
+    }
+    
+    /* Ensure all text in Sidebar is Crisp White/Gold */
+    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
+        color: #ffffff !important;
+    }
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
+        color: #fbbf24 !important; /* Gold headings in sidebar */
     }
 
-    /* 3. Fixing the "Empty Green Spaces" - Clean Paper Look */
+    /* 3. INPUT BOXES (Light BG -> Dark Text) */
+    .stTextInput>div>div, .stTextArea>div>div {
+        background-color: #ffffff !important;
+        color: #1a202c !important;
+        border: 1px solid #cbd5e1 !important;
+    }
+
+    /* 4. CONTENT CARDS (White Paper look) */
     div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
         background-color: #ffffff !important;
         border-radius: 12px !important;
         padding: 20px !important;
-        border: 1px solid #d1d5db !important;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* 4. Text - Deep Forest Green (Subtle & Professional) */
-    h1, h2, h3 {
-        color: #064e3b !important;
-        font-weight: 600 !important;
-    }
-    p, span, label {
-        color: #374151 !important; /* Dark Gray for readability */
-    }
-
-    /* 5. Inputs - Crisp & Clear */
-    .stTextInput>div>div, .stTextArea>div>div {
-        background-color: #ffffff !important;
-        border: 1px solid #cbd5e1 !important;
-        color: #1f2937 !important;
-    }
-
-    /* 6. The "Golden" Button - Subtle Pastel Yellow */
+    /* 5. THE BUTTON (Gold BG -> Dark Green Text) */
     .stButton>button {
-        background-color: #fef08a !important; /* Very soft yellow */
-        color: #064e3b !important;
-        border: 1px solid #fde047 !important;
+        background-color: #fbbf24 !important; /* Solid Gold */
+        color: #064e3b !important; /* Deep Green Text */
+        border: none !important;
         border-radius: 8px !important;
         font-weight: bold !important;
-        transition: all 0.2s ease;
-    }
-    .stButton>button:hover {
-        background-color: #fde047 !important;
-        border-color: #facc15 !important;
+        width: 100%;
     }
 
-    /* Hide Streamlit elements */
+    /* Hide UI clutter */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)

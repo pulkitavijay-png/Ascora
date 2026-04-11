@@ -36,7 +36,7 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = "assets/character1.png"
+char = "assests/character1.png"
 
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 
@@ -95,7 +95,7 @@ if "live_subject" not in st.session_state:
 # =========================
 # 📌 SIDEBAR NAVIGATION
 # =========================
-st.sidebar.title("🤖 Ascora Hub")
+#st.sidebar.title("🤖 Ascora Hub")
 st.sidebar.image("assests/logo.png")
 if st.session_state.logged_in:
     st.sidebar.success(f"User: {st.session_state.user_role}")

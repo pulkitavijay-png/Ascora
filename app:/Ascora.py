@@ -94,60 +94,50 @@ if "live_subject" not in st.session_state:
 #Designing
 st.markdown("""
     <style>
-    /* 1. MAIN WORKSPACE (Light BG -> Dark Text) */
+    /* 1. MAIN SCREEN - Soft Pastel Pink */
     .stApp {
-        background-color: #f4f4f2 !important; /* Soft Paper White */
+        background-color: #fdf2f8 !important; /* Soft Rose/Pink */
     }
     
-    /* Ensure all text in main area is Dark Charcoal */
+    /* 2. MAIN TEXT - High Contrast Dark Charcoal */
+    /* This ensures User ID, Password, and all notes are 100% visible */
     .stApp p, .stApp span, .stApp label, .stApp li {
-        color: #1a202c !important; 
-        font-weight: 500 !important;
+        color: #1f2937 !important; 
+        font-weight: 600 !important;
     }
     
-    /* Main Headers in Deep Green */
+    /* 3. HEADERS - Deep Green for Brand Consistency */
     .stApp h1, .stApp h2, .stApp h3 {
         color: #064e3b !important;
+        font-weight: 800 !important;
     }
 
-    /* 2. SIDEBAR (Dark BG -> Light Text) */
+    /* 4. SIDEBAR - The Signature Dark Green */
     [data-testid="stSidebar"] {
-        background-color: #064e3b !important; /* Deep Emerald */
+        background-color: #064e3b !important;
         border-right: 2px solid #fbbf24;
     }
     
-    /* Ensure all text in Sidebar is Crisp White/Gold */
+    /* Sidebar Text must stay Light */
     [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
         color: #ffffff !important;
     }
-    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {
-        color: #fbbf24 !important; /* Gold headings in sidebar */
-    }
 
-    /* 3. INPUT BOXES (Light BG -> Dark Text) */
-    .stTextInput>div>div, .stTextArea>div>div {
+    /* 5. INPUT BOXES - White background with Dark Text inside */
+    .stTextInput>div>div input {
+        color: #1f2937 !important;
         background-color: #ffffff !important;
-        color: #1a202c !important;
-        border: 1px solid #cbd5e1 !important;
+        border: 1px solid #f9a8d4 !important; /* Subtle pink border for boxes */
     }
 
-    /* 4. CONTENT CARDS (White Paper look) */
-    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
-        background-color: #ffffff !important;
-        border-radius: 12px !important;
-        padding: 20px !important;
-        border: 1px solid #e2e8f0 !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
-    }
-
-    /* 5. THE BUTTON (Gold BG -> Dark Green Text) */
+    /* 6. BUTTON - Gold with Dark Text */
     .stButton>button {
-        background-color: #fbbf24 !important; /* Solid Gold */
-        color: #064e3b !important; /* Deep Green Text */
+        background-color: #fbbf24 !important;
+        color: #064e3b !important;
+        border-radius: 10px !important;
         border: none !important;
-        border-radius: 8px !important;
         font-weight: bold !important;
-        width: 100%;
+        padding: 0.5rem 2rem !important;
     }
 
     /* Hide UI clutter */

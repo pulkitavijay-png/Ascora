@@ -37,7 +37,7 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = "/Users/pulkitavijay/Documents/Ascora/character1.png"
+char = "assets/character1.png"
 
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 

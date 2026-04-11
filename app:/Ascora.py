@@ -99,7 +99,7 @@ if "live_subject" not in st.session_state:
 # 📌 SIDEBAR NAVIGATION
 # =========================
 st.sidebar.title("🤖 Ascora Hub")
-st.sidebar.image(r"Ascora/assests/logo.png")
+st.sidebar.image(r"assests:/logo.png")
 #logo_path = os.path.join(parent_dir, "assests", "logo.png")
 #if os.path.exists(logo_path):
 #    st.sidebar.image(logo_path)

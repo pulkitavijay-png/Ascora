@@ -94,53 +94,51 @@ if "live_subject" not in st.session_state:
 # DESIGNING
 st.markdown("""
     <style>
-    /* 1. Smooth Background & Global Font */
+    /* 1. Main Background - Deep Emerald to Black */
     .stApp {
-        background: linear-gradient(135deg, #064e3b 0%, #042f2e 100%) !important;
-        font-family: 'Inter', sans-serif;
+        background: linear-gradient(180deg, #022c22 0%, #000000 100%) !important;
     }
 
-    /* 2. Sidebar Customization */
+    /* 2. Sidebar - Dark Charcoal (Makes the Emerald Logo stand out!) */
     [data-testid="stSidebar"] {
-        background-color: rgba(6, 78, 59, 0.8) !important;
-        border-right: 1px solid rgba(251, 191, 36, 0.3);
-        backdrop-filter: blur(10px);
+        background-color: #111827 !important; /* Very dark blue-gray */
+        border-right: 2px solid #fbbf24; /* Thin gold divider */
     }
 
-    /* 3. Cards/Containers (The "Blocky" fix) */
-    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
+    /* 3. Logo Container - Add some breathing room */
+    [data-testid="stSidebar"] [data-testid="stImage"] {
         padding: 20px;
-        border: 1px solid rgba(251, 191, 36, 0.1);
+        filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
     }
 
-    /* 4. Text Glow and Hierarchy */
+    /* 4. Cards - Clean and Semi-Transparent */
+    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    /* 5. Gold & White Text */
     h1, h2, h3 {
-        color: #fbbf24 !important; /* Gold headings */
-        text-shadow: 0px 0px 10px rgba(251, 191, 36, 0.2);
+        color: #fbbf24 !important;
+        letter-spacing: 1px;
     }
     p, span, label {
-        color: #e5e7eb !important; /* Soft white/gray for body text */
+        color: #e5e7eb !important;
     }
 
-    /* 5. Sleek Gold Buttons */
+    /* 6. Professional Gold Button */
     .stButton>button {
-        background: linear-gradient(90deg, #fbbf24 0%, #d97706 100%) !important;
+        background-color: #fbbf24 !important;
         color: #064e3b !important;
-        border: none !important;
         border-radius: 8px !important;
-        padding: 0.5rem 2rem !important;
-        font-weight: 700 !important;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        border: none !important;
+        font-weight: bold !important;
+        width: 100%;
     }
-    .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
-    }
-
-    /* 6. Hide Streamlit Branding */
+    
+    /* Hide Streamlit junk */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)

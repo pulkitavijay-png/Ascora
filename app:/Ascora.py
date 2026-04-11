@@ -96,7 +96,7 @@ if "live_subject" not in st.session_state:
 # 📌 SIDEBAR NAVIGATION
 # =========================
 st.sidebar.title("🤖 Ascora Hub")
-st.sidebar.image("assests/logo.jpeg")
+st.sidebar.image("assests/logo.png")
 if st.session_state.logged_in:
     st.sidebar.success(f"User: {st.session_state.user_role}")
     

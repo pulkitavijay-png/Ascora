@@ -94,53 +94,60 @@ if "live_subject" not in st.session_state:
 #Designing
 st.markdown("""
     <style>
-    /* 1. Deep Midnight Background */
+    /* 1. Subtle Off-White/Sage Background */
     .stApp {
-        background-color: #0f172a !important; /* Professional Dark Navy */
+        background-color: #f8fafc !important; /* Very light gray-white */
     }
 
-    /* 2. Slate Sidebar - Provides a clean frame for the Emerald Logo */
+    /* 2. Soft Forest Green Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #1e293b !important;
-        border-right: 2px solid #fbbf24; /* Solid Gold line */
+        background-color: #064e3b !important;
+        border-right: 3px solid #fde047; /* Subtle Yellow border */
     }
 
-    /* 3. Fixing the "Empty Spaces" - Glass Cards */
-    /* This turns those big green blocks into sleek, dark-blue glass containers */
+    /* 3. Fixing the "Empty Spaces" - Soft White Cards */
+    /* This turns those dark green blocks into clean, white-bordered cards */
     div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
-        background-color: rgba(30, 41, 59, 0.7) !important;
-        border-radius: 15px !important;
-        border: 1px solid rgba(251, 191, 36, 0.3) !important;
+        background-color: white !important;
+        border-radius: 12px !important;
         padding: 20px !important;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+        margin-bottom: 10px;
     }
 
-    /* 4. Text - Clean White & Gold */
+    /* 4. Professional Text Colors */
     h1, h2, h3 {
-        color: #fbbf24 !important; /* Gold for titles */
-        font-family: 'serif';
+        color: #064e3b !important; /* Deep Green titles */
+        font-weight: 700 !important;
     }
     p, span, label {
-        color: #e2e8f0 !important; /* Soft white for readability */
+        color: #334155 !important; /* Soft Charcoal for body text */
     }
 
-    /* 5. Input Boxes - Removing the "Heavy" look */
+    /* 5. Clean Input Boxes */
     .stTextInput>div>div, .stTextArea>div>div {
-        background-color: #0f172a !important;
-        color: white !important;
-        border: 1px solid #334155 !important;
+        background-color: #f1f5f9 !important;
+        border-radius: 8px !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
     }
 
-    /* 6. The Button - Matches the Maroon Arrow in your logo */
+    /* 6. Subtle Gold Button (Not bright yellow!) */
     .stButton>button {
-        background: linear-gradient(90deg, #991b1b 0%, #7f1d1d 100%) !important;
-        color: white !important;
+        background-color: #fde047 !important; /* Soft Yellow */
+        color: #064e3b !important;
         border: none !important;
         border-radius: 8px !important;
-        font-weight: bold !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease;
+    }
+    .stButton>button:hover {
+        background-color: #facc15 !important; /* Slightly darker on hover */
+        transform: translateY(-1px);
     }
 
-    /* Hide Streamlit junk */
+    /* Hide Streamlit elements */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)

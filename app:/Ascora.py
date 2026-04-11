@@ -91,32 +91,57 @@ if "attendance_list" not in st.session_state:
 
 if "live_subject" not in st.session_state:
     st.session_state.live_subject = None
-st.set_page_config(page_title="Ascora Hub", layout="wide")
-#Designing
-
-# This block forces the Emerald Green and White text
+# DESIGNING
 st.markdown("""
     <style>
-    /* This targets the main background */
+    /* 1. Smooth Background & Global Font */
     .stApp {
-        background-color: #064e3b !important;
+        background: linear-gradient(135deg, #064e3b 0%, #042f2e 100%) !important;
+        font-family: 'Inter', sans-serif;
     }
-    /* This targets the sidebar background */
+
+    /* 2. Sidebar Customization */
     [data-testid="stSidebar"] {
-        background-color: #064e3b !important;
-        border-right: 1px solid #fbbf24;
+        background-color: rgba(6, 78, 59, 0.8) !important;
+        border-right: 1px solid rgba(251, 191, 36, 0.3);
+        backdrop-filter: blur(10px);
     }
-    /* This makes all text white so it's readable on green */
-    h1, h2, h3, p, span, div {
-        color: white !important;
+
+    /* 3. Cards/Containers (The "Blocky" fix) */
+    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid rgba(251, 191, 36, 0.1);
     }
-    /* This styles your buttons to be Gold */
+
+    /* 4. Text Glow and Hierarchy */
+    h1, h2, h3 {
+        color: #fbbf24 !important; /* Gold headings */
+        text-shadow: 0px 0px 10px rgba(251, 191, 36, 0.2);
+    }
+    p, span, label {
+        color: #e5e7eb !important; /* Soft white/gray for body text */
+    }
+
+    /* 5. Sleek Gold Buttons */
     .stButton>button {
-        background-color: #fbbf24 !important;
+        background: linear-gradient(90deg, #fbbf24 0%, #d97706 100%) !important;
         color: #064e3b !important;
-        border-radius: 10px;
-        font-weight: bold;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 2rem !important;
+        font-weight: 700 !important;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
     }
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+    }
+
+    /* 6. Hide Streamlit Branding */
+    #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)
 # =========================

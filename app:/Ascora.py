@@ -94,57 +94,54 @@ if "live_subject" not in st.session_state:
 #Designing
 st.markdown("""
     <style>
-    /* 1. Subtle Off-White/Sage Background */
+    /* 1. Main Workspace - Soft, Neutral Sage (Easier on eyes than pure white) */
     .stApp {
-        background-color: #f8fafc !important; /* Very light gray-white */
+        background-color: #f1f5f1 !important; 
     }
 
-    /* 2. Soft Forest Green Sidebar */
+    /* 2. Sidebar - Clean White (Interchanged) */
     [data-testid="stSidebar"] {
-        background-color: #064e3b !important;
-        border-right: 3px solid #fde047; /* Subtle Yellow border */
+        background-color: #ffffff !important;
+        border-right: 1px solid #e2e8f0;
     }
 
-    /* 3. Fixing the "Empty Spaces" - Soft White Cards */
-    /* This turns those dark green blocks into clean, white-bordered cards */
+    /* 3. Fixing the "Empty Green Spaces" - Clean Paper Look */
     div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
-        background-color: white !important;
+        background-color: #ffffff !important;
         border-radius: 12px !important;
         padding: 20px !important;
-        border: 1px solid #e2e8f0 !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-        margin-bottom: 10px;
+        border: 1px solid #d1d5db !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* 4. Professional Text Colors */
+    /* 4. Text - Deep Forest Green (Subtle & Professional) */
     h1, h2, h3 {
-        color: #064e3b !important; /* Deep Green titles */
-        font-weight: 700 !important;
+        color: #064e3b !important;
+        font-weight: 600 !important;
     }
     p, span, label {
-        color: #334155 !important; /* Soft Charcoal for body text */
+        color: #374151 !important; /* Dark Gray for readability */
     }
 
-    /* 5. Clean Input Boxes */
+    /* 5. Inputs - Crisp & Clear */
     .stTextInput>div>div, .stTextArea>div>div {
-        background-color: #f1f5f9 !important;
-        border-radius: 8px !important;
+        background-color: #ffffff !important;
         border: 1px solid #cbd5e1 !important;
-        color: #0f172a !important;
+        color: #1f2937 !important;
     }
 
-    /* 6. Subtle Gold Button (Not bright yellow!) */
+    /* 6. The "Golden" Button - Subtle Pastel Yellow */
     .stButton>button {
-        background-color: #fde047 !important; /* Soft Yellow */
+        background-color: #fef08a !important; /* Very soft yellow */
         color: #064e3b !important;
-        border: none !important;
+        border: 1px solid #fde047 !important;
         border-radius: 8px !important;
-        font-weight: 600 !important;
+        font-weight: bold !important;
         transition: all 0.2s ease;
     }
     .stButton>button:hover {
-        background-color: #facc15 !important; /* Slightly darker on hover */
-        transform: translateY(-1px);
+        background-color: #fde047 !important;
+        border-color: #facc15 !important;
     }
 
     /* Hide Streamlit elements */

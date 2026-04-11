@@ -3,7 +3,10 @@ import google.generativeai as genai
 from gtts import gTTS
 import base64 # Needed to "inject" audio into the webpage
 import time
+import os
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
 # Set up the model
 model = genai.GenerativeModel('gemini-2.5-flash-lite')
 # =========================
@@ -36,8 +39,8 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = "assests/character1.png"
-
+#char = "assests/character1.png"
+character_path = os.path.join(parent_dir, "assests", "character1.png")
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 
 IMPORTANT: Do NOT write stage directions, visual descriptions, or "(Visuals)". 
@@ -95,8 +98,13 @@ if "live_subject" not in st.session_state:
 # =========================
 # 📌 SIDEBAR NAVIGATION
 # =========================
-#st.sidebar.title("🤖 Ascora Hub")
-st.sidebar.image("assests/logo.png")
+st.sidebar.title("🤖 Ascora Hub")
+logo_path = os.path.join(parent_dir, "assests", "logo.png")
+if os.path.exists(logo_path):
+    st.sidebar.image(logo_path)
+else:
+    st.sidebar.warning("Logo file not found at the path.")
+#st.sidebar.image("assests/logo.png")
 if st.session_state.logged_in:
     st.sidebar.success(f"User: {st.session_state.user_role}")
     
@@ -193,7 +201,11 @@ elif role == "Student Dashboard":
                             col1, col2 = st.columns([1, 2])
 
                             with col1:
-                                st.image(char, use_container_width=True)
+                                #st.image(char, use_container_width=True)
+                                if os.path.exists(character_path):
+                                     st.image(character_path, width=300) # You can adjust the width as needed
+                                else:
+                                    st.write("Character image coming soon!")
 
                             with col2:
                                 st.markdown("### 🎙️ Ascora Speaking...")

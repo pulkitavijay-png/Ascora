@@ -3,10 +3,7 @@ import google.generativeai as genai
 from gtts import gTTS
 import base64 # Needed to "inject" audio into the webpage
 import time
-import os
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
 # Set up the model
 model = genai.GenerativeModel('gemini-2.5-flash-lite')
 # =========================
@@ -39,7 +36,7 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = r"Ascora/assests/character1.png"
+char = r"assests:/character1.png"
 #character_path = os.path.join(parent_dir, "assests", "character1.png")
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 

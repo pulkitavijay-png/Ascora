@@ -96,7 +96,7 @@ st.markdown("""
     <style>
     /* Target only the Sidebar */
     [data-testid="stSidebar"] {
-        background-color: #064e3b !important; /* Deep Emerald Green */
+        background-color: #fdf2f8 !important; /* Pastel Pink */
         border-right: 4px solid #fbbf24 !important; /* Golden Yellow Accent Line */
     }
 

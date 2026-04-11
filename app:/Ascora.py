@@ -91,56 +91,56 @@ if "attendance_list" not in st.session_state:
 
 if "live_subject" not in st.session_state:
     st.session_state.live_subject = None
-# DESIGNING
+#Designing
 st.markdown("""
     <style>
-    /* 1. Soft Pastel Background */
+    /* 1. Deep Midnight Background */
     .stApp {
-        background: linear-gradient(135deg, #fff5f7 0%, #fef2f2 100%) !important;
+        background-color: #0f172a !important; /* Professional Dark Navy */
     }
 
-    /* 2. Soft Pink Sidebar */
+    /* 2. Slate Sidebar - Provides a clean frame for the Emerald Logo */
     [data-testid="stSidebar"] {
-        background-color: #fce4ec !important;
-        border-right: 1px solid #f8bbd0;
+        background-color: #1e293b !important;
+        border-right: 2px solid #fbbf24; /* Solid Gold line */
     }
 
-    /* 3. Fixing the "Empty Green Spaces" */
-    /* This makes your containers look like clean white cards */
-    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown), 
-    .stTextInput>div>div, .stTextArea>div>div {
-        background-color: white !important;
+    /* 3. Fixing the "Empty Spaces" - Glass Cards */
+    /* This turns those big green blocks into sleek, dark-blue glass containers */
+    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown) {
+        background-color: rgba(30, 41, 59, 0.7) !important;
         border-radius: 15px !important;
-        border: 1px solid #fbcfe8 !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02) !important;
-        color: #4b5563 !important;
+        border: 1px solid rgba(251, 191, 36, 0.3) !important;
+        padding: 20px !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
     }
 
-    /* 4. Text Colors - Soft Charcoal (easier to read) */
+    /* 4. Text - Clean White & Gold */
     h1, h2, h3 {
-        color: #be185d !important; /* Deep Pink */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fbbf24 !important; /* Gold for titles */
+        font-family: 'serif';
     }
     p, span, label {
-        color: #4b5563 !important;
+        color: #e2e8f0 !important; /* Soft white for readability */
     }
 
-    /* 5. Button - Sweet Pastel Pink */
+    /* 5. Input Boxes - Removing the "Heavy" look */
+    .stTextInput>div>div, .stTextArea>div>div {
+        background-color: #0f172a !important;
+        color: white !important;
+        border: 1px solid #334155 !important;
+    }
+
+    /* 6. The Button - Matches the Maroon Arrow in your logo */
     .stButton>button {
-        background: #f472b6 !important;
+        background: linear-gradient(90deg, #991b1b 0%, #7f1d1d 100%) !important;
         color: white !important;
         border: none !important;
-        border-radius: 12px !important;
-        padding: 10px 20px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease;
-    }
-    .stButton>button:hover {
-        background: #ec4899 !important;
-        transform: scale(1.02);
+        border-radius: 8px !important;
+        font-weight: bold !important;
     }
 
-    /* Hide Streamlit Header/Footer */
+    /* Hide Streamlit junk */
     #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)

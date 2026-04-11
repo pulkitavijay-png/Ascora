@@ -94,54 +94,29 @@ if "live_subject" not in st.session_state:
 #Designing
 st.markdown("""
     <style>
-    /* 1. MAIN SCREEN - Soft Pastel Pink */
-    .stApp {
-        background-color: #fdf2f8 !important; /* Soft Rose/Pink */
-    }
-    
-    /* 2. MAIN TEXT - High Contrast Dark Charcoal */
-    /* This ensures User ID, Password, and all notes are 100% visible */
-    .stApp p, .stApp span, .stApp label, .stApp li {
-        color: #1f2937 !important; 
-        font-weight: 600 !important;
-    }
-    
-    /* 3. HEADERS - Deep Green for Brand Consistency */
-    .stApp h1, .stApp h2, .stApp h3 {
-        color: #064e3b !important;
-        font-weight: 800 !important;
+    /* Target only the Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #064e3b !important; /* Deep Emerald Green */
+        border-right: 4px solid #fbbf24 !important; /* Golden Yellow Accent Line */
     }
 
-    /* 4. SIDEBAR - The Signature Dark Green */
-    [data-testid="stSidebar"] {
-        background-color: #064e3b !important;
-        border-right: 2px solid #fbbf24;
-    }
-    
-    /* Sidebar Text must stay Light */
-    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
+    /* Force all text inside the Sidebar to be White so it's visible */
+    [data-testid="stSidebar"] p, 
+    [data-testid="stSidebar"] span, 
+    [data-testid="stSidebar"] label, 
+    [data-testid="stSidebar"] h1, 
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] h3 {
         color: #ffffff !important;
     }
 
-    /* 5. INPUT BOXES - White background with Dark Text inside */
-    .stTextInput>div>div input {
-        color: #1f2937 !important;
-        background-color: #ffffff !important;
-        border: 1px solid #f9a8d4 !important; /* Subtle pink border for boxes */
-    }
-
-    /* 6. BUTTON - Gold with Dark Text */
-    .stButton>button {
+    /* Style the Sidebar Golden Yellow Button */
+    [data-testid="stSidebar"] .stButton>button {
         background-color: #fbbf24 !important;
         color: #064e3b !important;
-        border-radius: 10px !important;
         border: none !important;
         font-weight: bold !important;
-        padding: 0.5rem 2rem !important;
     }
-
-    /* Hide UI clutter */
-    #MainMenu, footer, header {visibility: hidden;}
     </style>
     """, unsafe_allow_html=True)
 # =========================

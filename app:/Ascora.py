@@ -3,8 +3,7 @@ import google.generativeai as genai
 from gtts import gTTS
 import base64 # Needed to "inject" audio into the webpage
 import time
-#AIzaSyDmFObNVSpnOuUXso1Sz-E6ndBrjqY2Aws
-genai.configure(api_key="AIzaSyDmFObNVSpnOuUXso1Sz-E6ndBrjqY2Aws")
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 # Set up the model
 model = genai.GenerativeModel('gemini-2.5-flash-lite')
 # =========================

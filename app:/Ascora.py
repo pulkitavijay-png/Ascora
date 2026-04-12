@@ -348,36 +348,32 @@ elif role == "Teacher Assistant":
             st.session_state.active_topic = topic
             st.session_state.is_live = True
             st.session_state.live_subject = subject
-            with lec_col:
-                with st.container(border=True):
-                    t1, t2 = st.tabs(["🔴 Live Stream","📜 Transcript"])
+            # =========================
+        # 🔴 MONITOR FOR THE TEACHER
+        # =========================
+        if st.session_state.is_live:
+            st.divider()
+            st.success("🔴 MONITORING LIVE CLASS")
+            st.subheader(f"Topic: {st.session_state.active_topic}")
 
-                    with t1:
-                        if st.session_state.is_live and st.session_state.live_subject == st.session_state.active_sub:
-                            st.success("🔴 LIVE CLASS")
-                            st.subheader(f"Topic: {st.session_state.active_topic}")
+            # Note: We use local columns here, NOT lec_col
+            mon_col1, mon_col2 = st.columns([1, 2])
 
-                            col1, col2 = st.columns([1, 2])
+            with mon_col1:
+                st.image(char, use_container_width=True)
+                if st.button("🛑 Stop Lecture"):
+                    st.session_state.is_live = False
+                    st.rerun()
 
-                            with col1:
-                                st.image(char, use_container_width=True)
+            with mon_col2:
+                st.markdown("### 🎙️ Ascora is Speaking...")
+                try:
+                    with open("lecture.mp3", "rb") as f:
+                        st.audio(f.read(), format="audio/mp3")
+                except:
+                    st.warning("Generating audio...")
 
-                            with col2:
-                                st.markdown("### 🎙️ Ascora Speaking...")
-                                audio_file = open("lecture.mp3", "rb")
-                                audio_bytes = audio_file.read()
-                                st.audio(audio_bytes, format="audio/mp3")
-
-                            st.divider()
-                            st.info("💡 Tip: You can ask doubts in the chat box below!")
-
-                        else:
-                            st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-                            st.caption("Waiting for the Facilitator to start the AI Robot session...")
-
-
-                    with t2:
-                        if st.session_state.is_live:
-                            st.write("Live Transcript Feed...")
-                            st.write(st.session_state.current_lecture)
+            st.write("---")
+            st.markdown("**📜 Live Transcript Feed (Teacher View):**")
+            st.info(st.session_state.current_lecture)
            

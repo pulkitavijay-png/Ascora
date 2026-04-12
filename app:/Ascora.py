@@ -36,8 +36,8 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = r"assests:/character1.png"
-#character_path = os.path.join(parent_dir, "assests", "character1.png")
+char = "assets/character1.png"
+
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 
 IMPORTANT: Do NOT write stage directions, visual descriptions, or "(Visuals)". 
@@ -91,46 +91,12 @@ if "attendance_list" not in st.session_state:
 
 if "live_subject" not in st.session_state:
     st.session_state.live_subject = None
-#Designing
-st.markdown("""
-    <style>
-    /* Target only the Sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #064e3b !important;
-        /* Metallic Gold Border */
-        border-right: 4px solid #fbbf24 !important; /* Golden Yellow Accent Line */
-    }
 
-    /* Force all text inside the Sidebar to be White so it's visible */
-    [data-testid="stSidebar"] p, 
-    [data-testid="stSidebar"] span, 
-    [data-testid="stSidebar"] label, 
-    [data-testid="stSidebar"] h1, 
-    [data-testid="stSidebar"] h2, 
-    [data-testid="stSidebar"] h3 {
-        color: #ffffff !important;
-    }
-
-    /* Style the Sidebar Golden Yellow Button */
-    [data-testid="stSidebar"] .stButton>button {
-        background-color: #fbbf24 !important;
-        color: #064e3b !important;
-        border: none !important;
-        font-weight: bold !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
 # =========================
 # 📌 SIDEBAR NAVIGATION
 # =========================
-st.sidebar.title("Ascora Hub")
-st.sidebar.image(r"assests:/logo.png")
-#logo_path = os.path.join(parent_dir, "assests", "logo.png")
-#if os.path.exists(logo_path):
-#    st.sidebar.image(logo_path)
-#else:
-   # st.sidebar.warning("Logo file not found at the path.")
-#st.sidebar.image("assests/logo.png")
+st.sidebar.title("🤖 Ascora Hub")
+st.sidebar.image("assests/logo.png")
 if st.session_state.logged_in:
     st.sidebar.success(f"User: {st.session_state.user_role}")
     
@@ -228,10 +194,6 @@ elif role == "Student Dashboard":
 
                             with col1:
                                 st.image(char, use_container_width=True)
-                                #if os.path.exists(character_path):
-                                    # st.image(character_path, width=300) # You can adjust the width as needed
-                                #else:
-                                    #st.write("Character image coming soon!")
 
                             with col2:
                                 st.markdown("### 🎙️ Ascora Speaking...")
@@ -372,6 +334,7 @@ elif role == "Teacher Assistant":
     # 🤖 AI LECTURE CONTROL
     # =========================
     with t_live:
+        
         st.subheader("🤖 Trigger AI Robot Teacher")
 
         subject = st.selectbox("Select Subject", list(syllabus.keys()))
@@ -385,8 +348,35 @@ elif role == "Teacher Assistant":
             st.session_state.active_topic = topic
             st.session_state.is_live = True
             st.session_state.live_subject = subject
+            # =========================
+            # 🔴 TEACHER'S LIVE MONITOR (Add this inside the t_live tab)
+            # =========================
+            if st.session_state.is_live:
+                st.divider()
+                st.markdown("### 🟢 Monitoring Live Lecture")
+                st.info(f"**Current Topic:** {st.session_state.active_topic}")
+    
+                mon_col1, mon_col2 = st.columns([1, 2])
+    
+                with mon_col1:
+                    st.image(char, caption="Ascora is Live", use_container_width=True)
+                   # Add a button to stop the lecture if needed
+                    if st.button("🛑 Stop Lecture"):
+                         st.session_state.is_live = False
+                         st.rerun()
 
-            tts = gTTS(text=st.session_state.current_lecture, lang='en')
-            tts.save("lecture.mp3")
+                with mon_col2:
+                    st.markdown("**🔊 Audio Output:**")
+                    try:
+                        with open("lecture.mp3", "rb") as f:
+                            st.audio(f.read(), format="audio/mp3")
+                    except:
+                        st.warning("Audio file loading...")
+            
+                    st.markdown("**📜 Live Transcript:**")
+                    st.caption(st.session_state.current_lecture)
 
-            st.rerun()
+                        tts = gTTS(text=st.session_state.current_lecture, lang='en')
+                        tts.save("lecture.mp3")
+
+                        st.rerun()

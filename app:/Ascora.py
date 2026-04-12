@@ -376,7 +376,7 @@ elif role == "Teacher Assistant":
                     st.markdown("**📜 Live Transcript:**")
                     st.caption(st.session_state.current_lecture)
 
-                        tts = gTTS(text=st.session_state.current_lecture, lang='en')
-                        tts.save("lecture.mp3")
+                    tts = gTTS(text=st.session_state.current_lecture, lang='en')
+                    tts.save("lecture.mp3")
 
-                        st.rerun()
+                    st.rerun()

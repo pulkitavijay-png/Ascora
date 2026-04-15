@@ -355,30 +355,30 @@ elif role == "Teacher Assistant":
             # =========================
             # 🔴 TEACHER'S LIVE MONITOR (Add this inside the t_live tab)
             # =========================
-            if st.session_state.is_live:
-                st.divider()
-                st.markdown("### 🟢 Monitoring Live Lecture")
-                st.info(f"**Current Topic:** {st.session_state.active_topic}")
-    
-                mon_col1, mon_col2 = st.columns([1, 2])
-    
-                with mon_col1:
-                    st.image(char, caption="Ascora is Live", use_container_width=True)
-                   # Add a button to stop the lecture if needed
-                    if st.button("🛑 Stop Lecture"):
-                         st.session_state.is_live = False
-                         st.rerun()
+        if st.session_state.is_live:
+            st.divider()
+            st.markdown("### 🟢 Monitoring Live Lecture")
+            st.info(f"**Current Topic:** {st.session_state.active_topic}")
 
-                with mon_col2:
-                    st.markdown("**🔊 Audio Output:**")
-                    try:
-                        with open("lecture.mp3", "rb") as f:
-                            st.audio(f.read(), format="audio/mp3")
-                    except:
-                        st.warning("Audio file loading...")
-            
-                    st.markdown("**📜 Live Transcript:**")
-                    st.caption(st.session_state.current_lecture)
-                    st.rerun()
+            mon_col1, mon_col2 = st.columns([1, 2])
+
+            with mon_col1:
+                st.image(char, caption="Ascora is Live", use_container_width=True)
+               # Add a button to stop the lecture if needed
+                if st.button("🛑 Stop Lecture"):
+                     st.session_state.is_live = False
+                     st.rerun()
+
+            with mon_col2:
+                st.markdown("**🔊 Audio Output:**")
+                try:
+                    with open("lecture.mp3", "rb") as f:
+                        st.audio(f.read(), format="audio/mp3")
+                except:
+                    st.warning("Audio file loading...")
+        
+                st.markdown("**📜 Live Transcript:**")
+                st.caption(st.session_state.current_lecture)
+                st.rerun()
 
            

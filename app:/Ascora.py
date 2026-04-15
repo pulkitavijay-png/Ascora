@@ -346,12 +346,12 @@ elif role == "Teacher Assistant":
         if st.button("🚀 START AI LECTURE", use_container_width=True):
             full_prompt = f"{ROBOT_PROMPT}\nSubject: {subject}\nTopic: {topic}"
             response = model.generate_content(full_prompt)
-            tts = gTTS(text=st.session_state.current_lecture, lang='en')
-            tts.save("lecture.mp3")
             st.session_state.current_lecture = response.text
             st.session_state.active_topic = topic
             st.session_state.is_live = True
             st.session_state.live_subject = subject
+            tts = gTTS(text=st.session_state.current_lecture, lang='en')
+            tts.save("lecture.mp3")
             # =========================
             # 🔴 TEACHER'S LIVE MONITOR (Add this inside the t_live tab)
             # =========================

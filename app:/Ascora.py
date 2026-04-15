@@ -36,7 +36,7 @@ syllabus = {
 # =========================
 # 🤖 AI CHARACTER + PROMPT
 # =========================
-char = "assests:/character1.png"
+char = "assets/character1.png"
 
 ROBOT_PROMPT = """
 You are Ascora, a friendly robot teacher appearing on a student's screen. 
@@ -96,7 +96,7 @@ if "live_subject" not in st.session_state:
 # 📌 SIDEBAR NAVIGATION
 # =========================
 st.sidebar.title("🤖 Ascora Hub")
-st.sidebar.image("assests:/logo.png")
+st.sidebar.image("assests/logo.png")
 if st.session_state.logged_in:
     st.sidebar.success(f"User: {st.session_state.user_role}")
     
@@ -196,10 +196,13 @@ elif role == "Student Dashboard":
                                 st.image(char, use_container_width=True)
 
                             with col2:
-                                st.markdown("### 🎙️ Ascora Speaking...")
-                                audio_file = open("lecture.mp3", "rb")
-                                audio_bytes = audio_file.read()
-                                st.audio(audio_bytes, format="audio/mp3")
+                                try:
+                                    st.markdown("### 🎙️ Ascora Speaking...")
+                                    audio_file = open("lecture.mp3", "rb")
+                                    audio_bytes = audio_file.read()
+                                    st.audio(audio_bytes, format="audio/mp3")
+                                except:
+                                    st.warning("Audio file loading...")
 
                             st.divider()
                             st.info("💡 Tip: You can ask doubts in the chat box below!")
@@ -343,37 +346,37 @@ elif role == "Teacher Assistant":
         if st.button("🚀 START AI LECTURE", use_container_width=True):
             full_prompt = f"{ROBOT_PROMPT}\nSubject: {subject}\nTopic: {topic}"
             response = model.generate_content(full_prompt)
-
+            tts = gTTS(text=st.session_state.current_lecture, lang='en')
+            tts.save("lecture.mp3")
             st.session_state.current_lecture = response.text
             st.session_state.active_topic = topic
             st.session_state.is_live = True
             st.session_state.live_subject = subject
             # =========================
-        # 🔴 MONITOR FOR THE TEACHER
-        # =========================
-        if st.session_state.is_live:
-            st.divider()
-            st.success("🔴 MONITORING LIVE CLASS")
-            st.subheader(f"Topic: {st.session_state.active_topic}")
+            # 🔴 TEACHER'S LIVE MONITOR (Add this inside the t_live tab)
+            # =========================
+            if st.session_state.is_live:
+                st.divider()
+                st.markdown("### 🟢 Monitoring Live Lecture")
+                st.info(f"**Current Topic:** {st.session_state.active_topic}")
+    
+                mon_col1, mon_col2 = st.columns([1, 2])
+    
+                with mon_col1:
+                    st.image(char, caption="Ascora is Live", use_container_width=True)
+                   # Add a button to stop the lecture if needed
+                    if st.button("🛑 Stop Lecture"):
+                         st.session_state.is_live = False
+                         st.rerun()
 
-            # Note: We use local columns here, NOT lec_col
-            mon_col1, mon_col2 = st.columns([1, 2])
-
-            with mon_col1:
-                st.image(char, use_container_width=True)
-                if st.button("🛑 Stop Lecture"):
-                    st.session_state.is_live = False
+                with mon_col2:
+                    st.markdown("**🔊 Audio Output:**")
+                    try:
+                        with open("lecture.mp3", "rb") as f:
+                            st.audio(f.read(), format="audio/mp3")
+                    except:
+                        st.warning("Audio file loading...")
+            
+                    st.markdown("**📜 Live Transcript:**")
+                    st.caption(st.session_state.current_lecture)
                     st.rerun()
-
-            with mon_col2:
-                st.markdown("### 🎙️ Ascora is Speaking...")
-                try:
-                    with open("lecture.mp3", "rb") as f:
-                        st.audio(f.read(), format="audio/mp3")
-                except:
-                    st.warning("Generating audio...")
-
-            st.write("---")
-            st.markdown("**📜 Live Transcript Feed (Teacher View):**")
-            st.info(st.session_state.current_lecture)
-           

@@ -380,3 +380,5 @@ elif role == "Teacher Assistant":
                     st.markdown("**📜 Live Transcript:**")
                     st.caption(st.session_state.current_lecture)
                     st.rerun()
+
+           

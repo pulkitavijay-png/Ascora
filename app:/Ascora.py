@@ -344,41 +344,48 @@ elif role == "Teacher Assistant":
         topic = st.selectbox("Select Topic", syllabus[subject])
 
         if st.button("🚀 START AI LECTURE", use_container_width=True):
-            full_prompt = f"{ROBOT_PROMPT}\nSubject: {subject}\nTopic: {topic}"
-            response = model.generate_content(full_prompt)
-            st.session_state.current_lecture = response.text
-            st.session_state.active_topic = topic
-            st.session_state.is_live = True
-            st.session_state.live_subject = subject
-            tts = gTTS(text=st.session_state.current_lecture, lang='en')
-            tts.save("lecture.mp3")
-            # =========================
-            # 🔴 TEACHER'S LIVE MONITOR (Add this inside the t_live tab)
-            # =========================
+            with st.spinner("Ascora is preparing the lesson..."):
+                full_prompt = f"{ROBOT_PROMPT}\nSubject: {subject}\nTopic: {topic}"
+                response = model.generate_content(full_prompt)
+                
+                # Update State
+                st.session_state.current_lecture = response.text
+                st.session_state.active_topic = topic
+                st.session_state.is_live = True
+                st.session_state.live_subject = subject
+                
+                # Generate Audio
+                tts = gTTS(text=st.session_state.current_lecture, lang='en')
+                tts.save("lecture.mp3")
+                
+                # RERUN ONLY HERE - Once, after generation is done
+                st.rerun()
+
+        # =========================
+        # 🔴 TEACHER'S LIVE MONITOR
+        # =========================
         if st.session_state.is_live:
             st.divider()
             st.markdown("### 🟢 Monitoring Live Lecture")
-            st.info(f"**Current Topic:** {st.session_state.active_topic}")
-
+            
             mon_col1, mon_col2 = st.columns([1, 2])
 
             with mon_col1:
                 st.image(char, caption="Ascora is Live", use_container_width=True)
-               # Add a button to stop the lecture if needed
                 if st.button("🛑 Stop Lecture"):
-                     st.session_state.is_live = False
-                     st.rerun()
+                    st.session_state.is_live = False
+                    st.rerun()
 
             with mon_col2:
                 st.markdown("**🔊 Audio Output:**")
+                # Use a unique key for the audio player to prevent state glitches
                 try:
                     with open("lecture.mp3", "rb") as f:
                         st.audio(f.read(), format="audio/mp3")
-                except:
-                    st.warning("Audio file loading...")
+                except FileNotFoundError:
+                    st.warning("Audio is still being processed...")
         
                 st.markdown("**📜 Live Transcript:**")
                 st.caption(st.session_state.current_lecture)
-                st.rerun()
 
            

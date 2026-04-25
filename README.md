@@ -2,7 +2,7 @@
 ### **A Hybrid AI-Learning Ecosystem for the Next Billion Students**
 > **Democratizing elite education through Generative AI and Frugal Social Robotics.**
 
-![Ascora Vision](hardware/Vision_Scene.png)
+![Ascora](hardware/Vision_Scene.png)
 
 ---
 

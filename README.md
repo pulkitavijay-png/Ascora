@@ -2,18 +2,18 @@
 ### **A Hybrid AI-Learning Ecosystem for the Next Billion Students**
 > **Democratizing elite education through Generative AI and Frugal Social Robotics.**
 
-![Ascora Vision](assets/Vision_Scene.jpg)
+![Ascora Vision](hardware:/Vision_Scene.png)
 
 ---
 
-## 💡 The Vision: Education Without Boundaries
+##  The Vision: Education Without Boundaries
 In the heart of rural classrooms, the crisis isn't just a lack of books—it's a lack of **personalized guidance**. With teacher-student ratios often exceeding **50:1**, the "Last Mile" of students is frequently left behind.
 
 **Ascora** is a decentralized, cyber-physical learning model designed to decouple quality education from local infrastructure. We transform any space—a village community center, an NGO hub, or a small clearing—into an **Independent Learning Center.** By housing **Google Gemini 1.5 Flash** within a rugged, modular kiosk, we provide a "Turn-key" classroom that offers standardized, high-quality mentorship anywhere on Earth.
 
 ---
 
-## 🔗 Live Interactive Prototype
+##  Live Interactive Prototype
 Experience the AI "Brain" driving the Ascora ecosystem:
 👉 **[Launch the Ascora Demo](https://ascora.streamlit.app/)**
 
@@ -24,15 +24,15 @@ Experience the AI "Brain" driving the Ascora ecosystem:
 
 ---
 
-## 🏗️ System Architecture: The Body & Brain
+##  System Architecture: The Body & Brain
 
-### 🧠 **The Brain (Software)**
+###  **The Brain (Software)**
 Ascora leverages advanced Generative AI to act as a human-centric pedagogical guide.
 * **LLM Core:** **Google Gemini 2.5 Flash** provides high-speed, multi-modal reasoning to simplify complex syllabi into story-based modules.
 * **Facilitator Model:** A "human-in-the-loop" approach where local community members act as guides while the AI handles the complex instruction.
 * **Accessibility:** A high-contrast Streamlit interface optimized for visibility in diverse lighting conditions.
 
-### 🦾 **The Body (Hardware)**
+###  **The Body (Hardware)**
 Designed for "Frugal Innovation," the physical kiosk is built to be resilient and locally repairable.
 * **Visual Interface:** 15.6" HD Output for group-based classroom engagement.
 * **Processing Unit:** **Raspberry Pi 5** (8GB) running in optimized **Headless Kiosk Mode**.
@@ -40,7 +40,7 @@ Designed for "Frugal Innovation," the physical kiosk is built to be resilient an
 
 ---
 
-## 🎯 Global Impact & UN SDG Alignment (Goal 4)
+##  Global Impact & UN SDG Alignment (Goal 4)
 Ascora is more than a robot; it is a scalable **PCO-style model** for schooling:
 * **Standardized Quality:** Ensures a child in a remote village receives the same pedagogical clarity as a child in an urban private school.
 * **Cost-Effective:** Total production cost estimated at **₹15,000 ($180)**—designed for rapid NGO and government deployment.
@@ -48,7 +48,7 @@ Ascora is more than a robot; it is a scalable **PCO-style model** for schooling:
 
 ---
 
-## 📊 Technical Stack
+##  Technical Stack
 * **AI Engine:** Google Gemini 2.5 Flash
 * **Backend:** Python 3.11 / Streamlit
 * **Hardware Environment:** Raspberry Pi 5 / Linux Debian

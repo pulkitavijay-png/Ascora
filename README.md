@@ -2,8 +2,6 @@
 ### **A Hybrid AI-Learning Ecosystem for the Next Billion Students**
 > **Democratizing elite education through Generative AI and Frugal Social Robotics.**
 
-![Ascora](hardware:/Vision_Scene.png)
-
 ---
 
 ##  The Vision: Education Without Boundaries

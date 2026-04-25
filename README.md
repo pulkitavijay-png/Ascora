@@ -1,4 +1,4 @@
-# 🤖 ASCORA: The Quiet Ascent
+# 🤖 ASCORA: The Quiet Ascent to the Core of Learning
 ### **A Hybrid AI-Learning Ecosystem for the Next Billion Students**
 > **Democratizing elite education through Generative AI and Frugal Social Robotics.**
 

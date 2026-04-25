@@ -1,6 +1,7 @@
 # 🤖 ASCORA: The Quiet Ascent to the Core of Learning
 ### **A Hybrid AI-Learning Ecosystem for the Next Billion Students**
 > **Democratizing elite education through Generative AI and Frugal Social Robotics.**
+![Ascora Vision](https://github.com/pulkitavijay-png/Ascora/blob/main/assets%3A/Vision_Scene.png)
 
 ---
 

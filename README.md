@@ -8,7 +8,7 @@
 ##  The Vision: Education Without Boundaries
 In the heart of rural classrooms, the crisis isn't just a lack of books—it's a lack of **personalized guidance**. With teacher-student ratios often exceeding **50:1**, the "Last Mile" of students is frequently left behind.
 
-**Ascora** is a decentralized, cyber-physical learning model designed to decouple quality education from local infrastructure. We transform any space—a village community center, an NGO hub, or a small clearing—into an **Independent Learning Center.** By housing **Google Gemini 1.5 Flash** within a rugged, modular kiosk, we provide a "Turn-key" classroom that offers standardized, high-quality mentorship anywhere on Earth.
+**Ascora** is a decentralized, cyber-physical learning model designed to decouple quality education from local infrastructure. We transform any space—a village community center, an NGO hub, or a small clearing—into an **Independent Learning Center.** By housing **Google Gemini 2.5 Flash** within a rugged, modular kiosk, we provide a "Turn-key" classroom that offers standardized, high-quality mentorship anywhere on Earth.
 
 ---
 

@@ -61,4 +61,4 @@ Ascora is a scalable **PCO-style model** for schooling:
 ├── 📄 README.md       # Project Master Vision
 └── 📄 requirements.txt # Environment dependencies
 
-> *"True wisdom isn't found in the complexity of the machine, but in the clarity it brings to the student. Ascora is the bridge between the world's most advanced AI and the world's most deserving children."*
+True wisdom isn't found in the complexity of the machine, but in the clarity it brings to the student. Ascora is the bridge between the world's most advanced AI and the world's most deserving children.

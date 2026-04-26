@@ -1,4 +1,4 @@
-# 🤖 ASCORA: The Quiet Ascent
+# 🤖 ASCORA: The Quiet Ascent to The Core of Learning
 ### **Decentralized Education for the Global South**
 > **Bridging the Pedagogical Gap via Generative AI and Frugal, Autonomous Learning Centers.**
 
